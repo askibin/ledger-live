@@ -375,6 +375,11 @@ export const ScreenName = {
 
   // hedera
   HederaEditMemo: "HederaEditMemo",
+
+  CustomImageStep1Crop: "CustomImageStep1Crop",
+  CustomImageStep2Preview: "CustomImageStep2Preview",
+  CustomImageStep3Transfer: "CustomImageStep3Transfer",
+  CustomImageErrorScreen: "CustomImageErrorScreen",
 };
 
 export const NavigatorName = {
@@ -453,4 +458,7 @@ export const NavigatorName = {
   // Root
   RootNavigator: "RootNavigator",
   Discover: "Discover",
+
+  // Custom Image
+  CustomImage: "CustomImage",
 };

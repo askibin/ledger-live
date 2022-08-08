@@ -19,6 +19,7 @@
     "device": "Device",
     "cryptoAsset": "Crypto asset",
     "skip": "Skip",
+    "next": "Next",
     "noCryptoFound": "No crypto assets found",
     "needHelp": "Do you need help?",
     "edit": "Edit",
@@ -677,6 +678,38 @@
     },
     "StellarSourceHasMultiSign": {
       "title": "Please disable multisign to make Stellar transactions"
+    },
+    "ImageLoadFromGalleryError": {
+      "title": "Image loading from gallery failed",
+      "description": "Please try again with another image"
+    },
+    "ImageDownloadError": {
+      "title": "Image download failed",
+      "description": "Please try again with another image"
+    },
+    "ImageMetadataLoadingError": {
+      "title": "Image metadata loading failed",
+      "description": "Please try again with another image"
+    },
+    "ImageTooLargeError": {
+      "title": "Image too large",
+      "description": "Please try with a smaller image"
+    },
+    "ImageCropError": {
+      "title": "Cropping of the image failed",
+      "description": "Please try again with another image"
+    },
+    "ImageResizeError": {
+      "title": "Resizing of the image failed",
+      "description": "Please try again with another image"
+    },
+    "ImagePreviewError": {
+      "title": "Preview of the image failed",
+      "description": "Please try again with another image"
+    },
+    "ImageProcessingError": {
+      "title": "Processing of the image failed",
+      "description": "Please try again with another image"
     }
   },
   "bluetooth": {
@@ -4522,5 +4555,15 @@
     "currentAddress": {
       "messageIfVirtual": "Your {{name}} address cannot be confirmed on your Ledger device. Use at your own risk."
     }
+  },
+  "customImage": {
+    "drawer": {
+      "title": "Choose an image",
+      "options": {
+        "uploadFromPhone": "Upload from my phone"
+      }
+    },
+    "uploadAnotherImage": "Upload another image",
+    "selectContrast": "Select your contrast"
   }
 }
