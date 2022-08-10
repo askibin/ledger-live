@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import styled, { useTheme } from "styled-components";
 
 import Check from "~/renderer/icons/Check";
+import { SoftwareCheckStatus } from "./SoftwareCheckStep";
 
 export const BorderFlex = styled(Flex)`
   background-color: ${p => p.theme.colors.palette.neutral.c30};
@@ -46,6 +47,7 @@ const Bullet = ({
   subText?: string;
 }) => {
   const theme = useTheme();
+
   return (
     <Row mb={8}>
       <IconContainer>
@@ -69,43 +71,34 @@ const Bullet = ({
   );
 };
 
-enum Status {
-  inactive = "inactive",
-  active = "active",
-  completed = "completed",
-}
+export type Props = {
+  genuineCheckStatus: SoftwareCheckStatus;
+  firmwareUpdateStatus: SoftwareCheckStatus;
+};
 
-type StatusType = "inactive" | "active" | "completed";
-
-const SoftwareCheckContent = ({
-  genuineCheckStatus,
-  firmwareUpdateStatus,
-}: {
-  genuineCheckStatus: StatusType;
-  firmwareUpdateStatus: StatusType;
-}) => {
+const SoftwareCheckContent = ({ genuineCheckStatus, firmwareUpdateStatus }: Props) => {
   const { t } = useTranslation();
 
   return (
     <>
       <Bullet
         bulletText="1"
-        isActive={genuineCheckStatus === Status.active && true}
-        isCompleted={genuineCheckStatus === Status.completed && true}
+        isActive={genuineCheckStatus === SoftwareCheckStatus.active}
+        isCompleted={genuineCheckStatus === SoftwareCheckStatus.completed}
         text={
-          genuineCheckStatus === Status.completed
+          genuineCheckStatus === SoftwareCheckStatus.completed
             ? t("syncOnboarding.manual.softwareCheckContent.genuineCheck.completed")
             : t("syncOnboarding.manual.softwareCheckContent.genuineCheck.active")
         }
       />
       <Bullet
         bulletText="2"
-        isActive={firmwareUpdateStatus === Status.active && true}
-        isCompleted={firmwareUpdateStatus === Status.completed && true}
+        isActive={firmwareUpdateStatus === SoftwareCheckStatus.active}
+        isCompleted={firmwareUpdateStatus === SoftwareCheckStatus.completed}
         text={
-          firmwareUpdateStatus === Status.inactive
+          firmwareUpdateStatus === SoftwareCheckStatus.inactive
             ? t("syncOnboarding.manual.softwareCheckContent.firmwareUpdate.inactive")
-            : firmwareUpdateStatus === Status.active
+            : firmwareUpdateStatus === SoftwareCheckStatus.active
             ? t("syncOnboarding.manual.softwareCheckContent.firmwareUpdate.active")
             : t("syncOnboarding.manual.softwareCheckContent.firmwareUpdate.completed")
         }
