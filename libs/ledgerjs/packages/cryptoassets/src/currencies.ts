@@ -189,11 +189,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       },
     ],
   },
-  arbitrum_lite: {
+  arbitrum: {
     type: "CryptoCurrency",
-    id: "arbitrum_lite",
+    id: "arbitrum",
     coinType: 60,
-    name: "Arbitrum Lite",
+    name: "Arbitrum",
     managerAppName: "Ethereum",
     ticker: "ETH",
     scheme: "arbitrum",
@@ -204,6 +204,8 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       baseChain: "mainnet",
       chainId: 42161,
       networkId: 42161,
+      rpc: "https://arb1.arbitrum.io/rpc",
+      explorer: "https://api.arbiscan.io",
     },
     explorerViews: [
       {
@@ -212,7 +214,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://arbiscan.io/token/$contractAddress?a=$address",
       },
     ],
-    rpc: "https://arb1.arbitrum.io/rpc",
   },
   ark: {
     type: "CryptoCurrency",
@@ -259,37 +260,8 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
   avalanche: {
     type: "CryptoCurrency",
     id: "avalanche",
-    coinType: 9000,
-    name: "Avalanche",
-    managerAppName: "Avalanche",
-    ticker: "AVAX",
-    scheme: "avalanche",
-    color: "#E84142",
-    family: "avalanche",
-    units: [
-      {
-        name: "AVAX",
-        code: "AVAX",
-        magnitude: 18,
-      },
-    ],
-    ethereumLikeInfo: {
-      chainId: 43114,
-    },
-    explorerViews: [
-      {
-        tx: "https://cchain.explorer.avax.network/tx/$hash",
-        address: "https://cchain.explorer.avax.network/address/$address",
-        token:
-          "https://cchain.explorer.avax.network/token/$contractAddress?a=$address",
-      },
-    ],
-  },
-  avalanche_lite: {
-    type: "CryptoCurrency",
-    id: "avalanche_lite",
     coinType: 60,
-    name: "Avalanche Lite",
+    name: "Avalanche",
     managerAppName: "Ethereum",
     ticker: "AVAX",
     scheme: "avalanche",
@@ -298,6 +270,8 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     units: ethereumUnits("AVAX", "AVAX"),
     ethereumLikeInfo: {
       chainId: 43114,
+      rpc: "https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc",
+      explorer: "https://api.snowtrace.io",
     },
     explorerViews: [
       {
@@ -306,7 +280,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://snowtrace.io/token/$contractAddress?a=$address",
       },
     ],
-    rpc: "https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc",
   },
   banano: {
     type: "CryptoCurrency",
@@ -734,11 +707,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       },
     ],
   },
-  cronos_lite: {
+  cronos: {
     type: "CryptoCurrency",
     id: "cronos",
     coinType: 60,
-    name: "Cronos Lite",
+    name: "Cronos",
     managerAppName: "Cronos",
     ticker: "CRO",
     scheme: "cro",
@@ -748,6 +721,8 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       baseChain: "mainnet",
       chainId: 25,
       networkId: 25,
+      rpc: "https://evm.cronos.org",
+      explorer: "https://api.cronoscan.com",
     },
     units: [
       {
@@ -763,7 +738,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://cronoscan.com/token/$contractAddress?a=$address",
       },
     ],
-    rpc: "https://evm.cronos.org",
   },
   dash: {
     type: "CryptoCurrency",
@@ -1148,11 +1122,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     },
     explorerViews: [],
   },
-  evmos_lite: {
+  evmos: {
     type: "CryptoCurrency",
-    id: "evmos_lite",
+    id: "evmos",
     coinType: 60,
-    name: "Evmos Lite",
+    name: "Evmos",
     managerAppName: "Ethereum",
     ticker: "EVMOS",
     scheme: "evmos",
@@ -1163,6 +1137,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       baseChain: "mainnet",
       chainId: 9001,
       networkId: 9001,
+      rpc: "https://evmos-json-rpc.stakely.io",
     },
     explorerViews: [
       {
@@ -1171,7 +1146,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://evm.evmos.org/token/$contractAddress",
       },
     ],
-    rpc: "https://evmos-json-rpc.stakely.io",
   },
   expanse: {
     type: "CryptoCurrency",
@@ -1215,11 +1189,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     ],
     explorerViews: [],
   },
-  fantom_lite: {
+  fantom: {
     type: "CryptoCurrency",
-    id: "fantom_lite",
+    id: "fantom",
     coinType: 60,
-    name: "Fantom Lite",
+    name: "Fantom",
     managerAppName: "Ethereum",
     ticker: "FTM",
     scheme: "fantom",
@@ -1230,6 +1204,8 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       baseChain: "mainnet",
       chainId: 250,
       networkId: 250,
+      rpc: "https://rpc.ankr.com/fantom",
+      explorer: "https://api.ftmscan.com",
     },
     explorerViews: [
       {
@@ -1238,7 +1214,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://ftmscan.com/token/$contractAddress?a=$address",
       },
     ],
-    rpc: "https://rpc.ankr.com/fantom",
   },
   fic: {
     type: "CryptoCurrency",
@@ -1774,11 +1749,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     id: "moonbeam",
     coinType: 60,
     name: "Moonbeam",
-    managerAppName: "Moonbeam",
+    managerAppName: "Ethereum",
     ticker: "GLMR",
     scheme: "moonbeam",
-    color: "#3D1D5A",
-    family: "ethereum",
+    color: "#5FC0C1",
+    family: "evm",
     units: [
       {
         name: "GLMR",
@@ -1787,31 +1762,11 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       },
     ],
     ethereumLikeInfo: {
-      chainId: 1284,
-    },
-    explorerViews: [
-      {
-        tx: "https://moonbeam.moonscan.io/tx/$hash",
-        address: "https://moonbeam.moonscan.io/address/$address",
-        token: "https://moonbeam.moonscan.io/token/$contractAddress?a=$address",
-      },
-    ],
-  },
-  moonbeam_lite: {
-    type: "CryptoCurrency",
-    id: "moonbeam_lite",
-    coinType: 60,
-    name: "Moonbeam Lite",
-    managerAppName: "Ethereum",
-    ticker: "GLMR",
-    scheme: "moonbeam",
-    color: "#5FC0C1",
-    family: "evm",
-    units: ethereumUnits("GLMR", "GLMR"),
-    ethereumLikeInfo: {
       baseChain: "mainnet",
       chainId: 1284,
       networkId: 1284,
+      rpc: "https://rpc.api.moonbeam.network",
+      explorer: "https://api-moonbeam.moonscan.io",
     },
     explorerViews: [
       {
@@ -1820,7 +1775,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         token: "https://moonbeam.moonscan.io/token/$contractAddress?a=$address",
       },
     ],
-    rpc: "https://rpc.api.moonbeam.network",
   },
   moonriver: {
     type: "CryptoCurrency",
@@ -3259,35 +3213,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     type: "CryptoCurrency",
     id: "ethereum_goerli",
     coinType: 60,
-    name: "Ethereum Goerli",
-    managerAppName: "Ethereum",
-    ticker: "ETH",
-    deviceTicker: "ETH",
-    scheme: "ethereum_goerli",
-    color: "#00ff00",
-    units: ethereumUnits("ether", "ETH").map(makeTestnetUnit),
-    isTestnetFor: "ethereum",
-    disableCountervalue: true,
-    family: "ethereum",
-    blockAvgTime: 15,
-    ethereumLikeInfo: {
-      baseChain: "goerli",
-      chainId: 5, // goerli
-      networkId: 5,
-      hardfork: "petersburg",
-    },
-    explorerViews: [
-      {
-        tx: "https://goerli.etherscan.io/tx/$hash",
-        address: "https://goerli.etherscan.io/address/$address",
-      },
-    ],
-  },
-  ethereum_goerli_lite: {
-    type: "CryptoCurrency",
-    id: "ethereum_goerli_lite",
-    coinType: 60,
-    name: "Ethereum Goerli Lite",
+    name: "Goerli",
     managerAppName: "Ethereum",
     ticker: "ETH",
     deviceTicker: "ETH",
@@ -3303,6 +3229,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       chainId: 5, // goerli
       networkId: 5,
       hardfork: "petersburg",
+      rpc: "https://goerli.infura.io/v3/c40608c251d04d5b82cc1f88ed49f0d8",
     },
     explorerViews: [
       {
@@ -3310,7 +3237,6 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         address: "https://goerli.etherscan.io/address/$address",
       },
     ],
-    rpc: "https://goerli.infura.io/v3/c40608c251d04d5b82cc1f88ed49f0d8",
   },
   stacks: {
     type: "CryptoCurrency",
