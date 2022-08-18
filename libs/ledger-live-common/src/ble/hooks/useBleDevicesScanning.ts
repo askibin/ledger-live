@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Observable, of } from "rxjs";
 import { concatAll } from "rxjs/operators";
 import { getInfosForServiceUuid } from "@ledgerhq/devices";
-import type { DeviceModelId } from "@ledgerhq/devices";
+import type { DeviceModelId } from "@ledgerhq/types-devices";
 import type {
   Observer as TransportObserver,
   Subscription as TransportSubscription,
@@ -15,7 +15,6 @@ export type ScanningBleError = BleError | null;
 
 export type UseBleDevicesScanningResult = {
   scannedDevices: ScannedDevice[];
-  scanningTimedOut: boolean;
   scanningBleError: ScanningBleError;
 };
 
@@ -28,7 +27,6 @@ export type UseBleDevicesScanningDependencies = {
 export type UseBleDevicesScanningOptions = {
   stopBleScanning?: boolean;
   filterByModelIds?: DeviceModelId[];
-  timeoutMs?: number;
 };
 
 const DEFAULT_DEVICE_NAME = "Device";
@@ -37,20 +35,16 @@ const DEFAULT_DEVICE_NAME = "Device";
  * Scans the BLE devices around the user
  * @param filterByModelIds An array of model ids to filter on
  * @param stopBleScanning Flag to stop or continue the scanning
- * @param timeoutMs TODO: Time after which if no device is found the scanning stops and the hooks notifies the consumer
  * @returns An object containing:
  * - scannedDevices: list of ScannedDevice found by the scanning
- * - scanningTimedOut: boolean to notify consumer if the scanning timed out
  * - scanningBleError: if an error occurred, a BleError, otherwise null
  */
 export const useBleDevicesScanning = ({
   bleTransportListen,
   stopBleScanning,
   filterByModelIds,
-  timeoutMs = 2000,
 }: UseBleDevicesScanningDependencies &
   UseBleDevicesScanningOptions): UseBleDevicesScanningResult => {
-  const [scanningTimedOut, setScanningTimedOut] = useState<boolean>(false);
   const [scanningBleError, setScanningBleError] =
     useState<ScanningBleError>(null);
   const [scannedDevices, setScannedDevices] = useState<ScannedDevice[]>([]);
@@ -65,14 +59,9 @@ export const useBleDevicesScanning = ({
       return;
     }
 
-    // TODO: define timeout and stop the scanning
-    const timeout = setTimeout(() => {
-      setScanningTimedOut(true);
-    }, timeoutMs);
-
     const bleScanningSource = new Observable(bleTransportListen);
 
-    // Concat to flatten the events emitted by the scanning, that could arrive to fast
+    // Concat to flatten the events emitted by the scanning, that could arrive too fast
     const sub = of(bleScanningSource)
       .pipe(concatAll())
       .subscribe({
@@ -84,16 +73,14 @@ export const useBleDevicesScanning = ({
           const { type, descriptor } = event;
 
           if (type === "add" && descriptor) {
-            clearTimeout(timeout);
-
             const transportDevice = descriptor;
 
-            // To avoid duplicates
-            if (
-              scannedDevicesRef.current.some(
-                (d) => d.deviceId === transportDevice.id
-              )
-            ) {
+            const isScannedDeviceDuplicate = scannedDevicesRef.current.some(
+              (d) => d.deviceId === transportDevice.id
+            );
+
+            // Avoiding duplicates
+            if (isScannedDeviceDuplicate) {
               return;
             }
 
@@ -145,19 +132,16 @@ export const useBleDevicesScanning = ({
 
     return () => {
       sub.unsubscribe();
-      clearTimeout(timeout);
     };
   }, [
     bleTransportListen,
     stopBleScanning,
     filterByModelIds,
     setScannedDevices,
-    timeoutMs,
   ]);
 
   return {
     scannedDevices,
-    scanningTimedOut,
     scanningBleError,
   };
 };

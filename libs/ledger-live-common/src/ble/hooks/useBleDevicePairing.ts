@@ -17,6 +17,13 @@ export type useBleDevicePairingResult = {
   pairingError: PairingError;
 };
 
+/**
+ * Triggers a BLE pairing with a device
+ * @param deviceId A BLE device id
+ * @returns An object containing:
+ * - isPaired: a boolean set to true if the device has been paired, false otherwise
+ * - pairingError: any PairingError that occurred, null otherwise
+ */
 export const useBleDevicePairing = ({
   deviceId,
 }: useBleDevicePairingArgs): useBleDevicePairingResult => {
