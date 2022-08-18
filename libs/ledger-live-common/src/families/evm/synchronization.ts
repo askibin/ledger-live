@@ -3,12 +3,8 @@ import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import { makeSync, makeScanAccounts, mergeOps } from "../../bridge/jsHelpers";
 import { GetAccountShape } from "../../bridge/jsHelpers";
 import { encodeAccountId } from "../../account";
-import {
-  getAccount,
-  getBlock,
-  getLatestTransactions,
-  getTransaction,
-} from "../../api/Evm";
+import { getAccount, getBlock, getTransaction } from "./api/rpc";
+import { getLatestTransactions } from "./api/etherscan";
 
 /**
  * Synchronization process
