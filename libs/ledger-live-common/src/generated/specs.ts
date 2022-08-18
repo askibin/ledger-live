@@ -6,6 +6,7 @@ import cosmos from "../families/cosmos/specs";
 import crypto_org from "../families/crypto_org/specs";
 import elrond from "../families/elrond/specs";
 import ethereum from "../families/ethereum/specs";
+import evm from "../families/evm/specs";
 import filecoin from "../families/filecoin/specs";
 import hedera from "../families/hedera/specs";
 import polkadot from "../families/polkadot/specs";
@@ -24,6 +25,7 @@ export default {
   crypto_org,
   elrond,
   ethereum,
+  evm,
   filecoin,
   hedera,
   polkadot,
