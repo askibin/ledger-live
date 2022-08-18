@@ -1,7 +1,8 @@
-import type { DeviceModel } from "@ledgerhq/devices";
+import type { DeviceModel } from "@ledgerhq/types-devices";
 
 // Inspired by Device class from react-native-ble-plx
 // Should be exported from somewhere else
+// TODO: Update after BIM transport is finished
 export type TransportBleDevice = {
   // Device identifier: MAC address on Android and UUID on iOS.
   id: string;
@@ -23,7 +24,7 @@ export type TransportBleDevice = {
 // Inspired by BleError class from react-native-ble-plx
 // BleError should be an error class which is guaranteed to be thrown by all functions
 // by our different implementations of Transport or at least of ble implementation of Transport
-// TODO: BleError as a class
+// TODO: BleError should probably be a class and update after BIM transport is finished
 export type BleError = Error & {
   // Platform independent error code.
   // It is defined as an enum named BleErrorCode in react-native-ble-plx
