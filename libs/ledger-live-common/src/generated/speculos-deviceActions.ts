@@ -9,6 +9,7 @@ import ethereum from "../families/ethereum/speculos-deviceActions";
 import evm from "../families/evm/speculos-deviceActions";
 import filecoin from "../families/filecoin/speculos-deviceActions";
 import hedera from "../families/hedera/speculos-deviceActions";
+import osmosis from "../families/osmosis/speculos-deviceActions";
 import polkadot from "../families/polkadot/speculos-deviceActions";
 import ripple from "../families/ripple/speculos-deviceActions";
 import solana from "../families/solana/speculos-deviceActions";
@@ -28,6 +29,7 @@ export default {
   evm,
   filecoin,
   hedera,
+  osmosis,
   polkadot,
   ripple,
   solana,

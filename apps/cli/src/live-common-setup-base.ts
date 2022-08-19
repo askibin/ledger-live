@@ -48,6 +48,8 @@ setSupportedCurrencies([
   "hedera",
   "cardano",
   "solana",
+  "osmosis",
+  "filecoin",
   "arbitrum",
   "avalanche",
   "fantom",
