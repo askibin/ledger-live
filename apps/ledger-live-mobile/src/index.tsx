@@ -159,9 +159,6 @@ function App({ importDataString }: AppProps) {
             .map(a => a.id),
         };
       }
-
-  );
-
       return null;
     },
     [],
