@@ -72,7 +72,9 @@ export default class LedgerStoreProvider extends Component<
 
     const postOnboardingState = await getPostOnboardingState();
     if (postOnboardingState) {
-      store.dispatch(importPostOnboardingState(postOnboardingState));
+      store.dispatch(
+        importPostOnboardingState({ newState: postOnboardingState }),
+      );
     }
 
     const initialCountervalues = await getCountervalues();
