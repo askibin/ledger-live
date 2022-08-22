@@ -1,6 +1,6 @@
 import { log } from "@ledgerhq/logs";
 import { atomicQueue } from "@ledgerhq/live-common/promise";
-import type { AccountRaw } from "@ledgerhq/types-live";
+import type { AccountRaw, PostOnboardingState } from "@ledgerhq/types-live";
 import type { CounterValuesStateRaw } from "@ledgerhq/live-common/countervalues/types";
 import store from "./logic/storeWrapper";
 
@@ -244,10 +244,10 @@ async function migrateAccountsIfNecessary(): Promise<void> {
   }
 }
 
-export async function getPostOnboardingState(): Promise<*> {
+export async function getPostOnboardingState(): Promise<any> {
   return store.get("postOnboarding");
 }
 
-export async function savePostOnboardingState(obj: *): Promise<void> {
+export async function savePostOnboardingState(obj: PostOnboardingState): Promise<void> {
   await store.save("postOnboarding", obj);
 }
