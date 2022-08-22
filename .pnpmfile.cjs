@@ -67,6 +67,13 @@ function readPackage(pkg, context) {
         So we are going to patch these until the maintainers fix their own stuff…
         Feel free to make PRs if you feel like it :).
       */
+      /*
+        Remove react-native from react-redux optional peer dependencies.
+        Without this, using react-redux code from LLC will fail because of duplicate.
+      */
+      removeDependencies("react-redux", ["react-native"], {
+        kind: "peerDependencies",
+      }),
       /* Storybook packages */
       addDependencies("@storybook/webpack-config", { "resolve-from": "*" }),
       addDependencies("@storybook/addon-knobs", {

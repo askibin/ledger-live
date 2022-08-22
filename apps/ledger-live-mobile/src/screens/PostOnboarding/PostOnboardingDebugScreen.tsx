@@ -1,4 +1,4 @@
-import { DeviceModelId } from "@ledgerhq/devices/lib/index";
+import { DeviceModelId } from "@ledgerhq/devices/index";
 import { Flex } from "@ledgerhq/native-ui";
 import React from "react";
 import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks";
