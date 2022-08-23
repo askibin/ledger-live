@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { walletPostOnboardingEntryPointDismissedSelector } from "../reducer";
-import { useAllPostOnboardingActionsCompleted } from ".";
+import { useAllPostOnboardingActionsCompleted } from "./useAllPostOnboardingActionsCompleted";
 
 /**
  *
@@ -13,5 +13,6 @@ export function usePostOnboardingEntryPointVisibleOnWallet(): boolean {
     walletPostOnboardingEntryPointDismissedSelector
   );
   const allCompleted = useAllPostOnboardingActionsCompleted();
+  // TODO: handle if device is null
   return !(dismissed || allCompleted);
 }

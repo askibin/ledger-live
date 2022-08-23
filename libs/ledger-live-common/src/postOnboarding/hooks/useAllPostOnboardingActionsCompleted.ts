@@ -1,4 +1,4 @@
-import { usePostOnboardingHubState } from ".";
+import { usePostOnboardingHubState } from "./usePostOnboardingHubState";
 
 /**
  *

@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { PostOnboardingHubState } from "@ledgerhq/types-live";
 import { useFeatureFlags } from "../../featureFlags";
 import { hubStateSelector } from "../reducer";
-import { usePostOnboardingContext } from ".";
+import { usePostOnboardingContext } from "./usePostOnboardingContext";
 
 /**
  * @returns an object representing the state that should be rendered on the post
