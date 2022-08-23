@@ -2,16 +2,15 @@ import React, { useCallback } from "react";
 import { Button, Flex, Text } from "@ledgerhq/native-ui";
 import { StackScreenProps } from "@react-navigation/stack";
 
-import { useSetActionCompletedCallback } from "@ledgerhq/live-common/postOnboarding/hooks";
+import { useSetActionCompletedCallback } from "@ledgerhq/live-common/postOnboarding/hooks/index";
 import { getPostOnboardingAction } from "../../logic/postOnboarding";
 import { NavigatorName, ScreenName } from "../../const";
 import { ParamList } from "./types";
 import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
 
-const PostOnboardingMockActionScreen: React.FC<StackScreenProps<
-  ParamList,
-  "PostOnboardingMockActionScreen"
->> = ({ navigation, route }) => {
+const PostOnboardingMockActionScreen: React.FC<
+  StackScreenProps<ParamList, "PostOnboardingMockActionScreen">
+> = ({ navigation, route }) => {
   const { params } = route;
   const { id } = params;
   const setActionCompleted = useSetActionCompletedCallback();

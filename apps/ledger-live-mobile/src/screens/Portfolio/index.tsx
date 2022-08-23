@@ -15,7 +15,7 @@ import { Box, Flex, Link as TextLink, Text } from "@ledgerhq/native-ui";
 import styled, { useTheme } from "styled-components/native";
 import proxyStyled from "@ledgerhq/native-ui/components/styled";
 import { PlusMedium } from "@ledgerhq/native-ui/assets/icons";
-import { usePostOnboardingEntryPointVisibleOnWallet } from "@ledgerhq/live-common/postOnboarding/hooks";
+import { usePostOnboardingEntryPointVisibleOnWallet } from "@ledgerhq/live-common/postOnboarding/hooks/index";
 import { useRefreshAccountsOrdering } from "../../actions/general";
 import { accountsSelector } from "../../reducers/accounts";
 import {

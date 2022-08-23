@@ -1,11 +1,11 @@
-import React, { PropsWithChildren, useContext } from "react";
+import React, { PropsWithChildren } from "react";
 import { DeviceModelId } from "@ledgerhq/types-devices";
 import {
   PostOnboardingAction,
   PostOnboardingActionId,
 } from "@ledgerhq/types-live";
 
-type PostOnboardingDependencies = {
+export type PostOnboardingDependencies = {
   navigateToPostOnboardingHub: () => void;
   getPostOnboardingAction?: (
     id: PostOnboardingActionId
@@ -22,7 +22,7 @@ const defaultValue: PostOnboardingDependencies = {
   getPostOnboardingActionsForDevice: () => [],
 };
 
-const PostOnboardingContext = React.createContext(defaultValue);
+export const PostOnboardingContext = React.createContext(defaultValue);
 
 export const PostOnboardingProvider: React.FC<
   PropsWithChildren<PostOnboardingDependencies>
@@ -33,7 +33,3 @@ export const PostOnboardingProvider: React.FC<
     </PostOnboardingContext.Provider>
   );
 };
-
-export function usePostOnboardingContext(): PostOnboardingDependencies {
-  return useContext(PostOnboardingContext);
-}

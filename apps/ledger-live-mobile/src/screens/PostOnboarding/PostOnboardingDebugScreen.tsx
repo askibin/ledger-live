@@ -1,7 +1,7 @@
 import { DeviceModelId } from "@ledgerhq/devices/index";
 import { Flex } from "@ledgerhq/native-ui";
 import React from "react";
-import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks";
+import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks/index";
 import PostOnboardingEntryPointCard from "../../components/PostOnboarding/PostOnboardingEntryPointCard";
 import SettingsRow from "../../components/SettingsRow";
 import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";

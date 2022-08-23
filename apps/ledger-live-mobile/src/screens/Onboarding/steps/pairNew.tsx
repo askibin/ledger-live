@@ -2,7 +2,8 @@ import React, { useCallback, useMemo, memo } from "react";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useTheme } from "styled-components/native";
 import { useDispatch } from "react-redux";
-import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks";
+import { DeviceModelId } from "@ledgerhq/devices";
+import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks/index";
 import { NavigatorName, ScreenName } from "../../../const";
 import { DeviceNames } from "../types";
 import BaseStepperView, { PairNew, ConnectNano } from "./setupDevice/scenes";
@@ -89,9 +90,9 @@ function OnboardingStepPairNew() {
     [deviceModelId, theme],
   );
 
-  // const startPostOnboarding = useStartPostOnboardingCallback(
-  //   deviceModelId as DeviceModelId,
-  // );
+  const startPostOnboarding = useStartPostOnboardingCallback(
+    deviceModelId as DeviceModelId,
+  );
 
   const onFinish = useCallback(() => {
     dispatch(completeOnboarding());
@@ -106,7 +107,7 @@ function OnboardingStepPairNew() {
       screen: NavigatorName.Main,
     });
 
-    // startPostOnboarding();
+    startPostOnboarding();
 
     triggerJustFinishedOnboardingNewDevicePushNotificationModal();
   }, [
@@ -114,7 +115,7 @@ function OnboardingStepPairNew() {
     navigation,
     resetCurrentStep,
     triggerJustFinishedOnboardingNewDevicePushNotificationModal,
-    // startPostOnboarding,
+    startPostOnboarding,
   ]);
 
   const nextPage = useCallback(() => {
