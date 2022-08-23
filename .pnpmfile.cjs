@@ -68,10 +68,10 @@ function readPackage(pkg, context) {
         Feel free to make PRs if you feel like it :).
       */
       /*
-        Remove react-native from react-redux optional peer dependencies.
-        Without this, using react-redux code from LLC will fail because of duplicate.
+        Remove react-native/react-dom from react-redux optional peer dependencies.
+        Without this, using react-redux code in LLM from LLC will fail because the package will get duplicated.
       */
-      removeDependencies("react-redux", ["react-native"], {
+      removeDependencies("react-redux", ["react-native", "react-dom"], {
         kind: "peerDependencies",
       }),
       /* Storybook packages */
