@@ -4,6 +4,8 @@ import { CloseMedium, HelpMedium } from "@ledgerhq/react-ui/assets/icons";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useOnboardingStatePolling } from "@ledgerhq/live-common/onboarding/hooks/useOnboardingStatePolling";
+import { useGenuineCheck } from "@ledgerhq/live-common/hw/hooks/useGenuineCheck";
+import { useGetLatestAvailableFirmware } from "@ledgerhq/live-common/hw/hooks/useGetLatestAvailableFirmware";
 import { command } from "~/renderer/commands";
 import LangSwitcher from "~/renderer/components/Onboarding/LangSwitcher";
 import { useHistory, useRouteMatch } from "react-router-dom";
@@ -40,6 +42,12 @@ type Step = {
   estimatedTime?: number;
   renderBody?: () => ReactNode;
 };
+
+// The commands needs to be defined outside of the function component, to avoid creating it at
+// each render, and re-triggering a run for their associated hooks
+const getGenuineCheckFromDeviceIdCommand = command("getGenuineCheckFromDeviceId");
+const getLatestAvailableFirmwareFromDeviceIdCommand = command("getLatestAvailableFirmwareFromDeviceId");
+const getOnboardingStatePollingCommand = command("getOnboardingStatePolling");
 
 const SyncOnboardingManual = () => {
   const { t } = useTranslation();
@@ -100,16 +108,36 @@ const SyncOnboardingManual = () => {
 
   const device = useSelector(getCurrentDevice);
 
-  const {
-    onboardingState: deviceOnboardingState,
-    allowedError,
-    // fatalErrorItem,
-  } = useOnboardingStatePolling({
-    getOnboardingStatePolling: command("getOnboardingStatePolling"),
-    device,
-    pollingPeriodMs: 2000,
+  // const {
+  //   onboardingState: deviceOnboardingState,
+  //   allowedError,
+  //   // fatalErrorItem,
+  // } = useOnboardingStatePolling({
+  //   getOnboardingStatePolling: getOnboardingStatePollingCommand,
+  //   device,
+  //   pollingPeriodMs: 2000,
+  // });
+  // console.log(`🦄 Manual onboarding polling = ${JSON.stringify(deviceOnboardingState)}`);
+
+  const deviceId = device?.deviceId ?? "";
+
+  // const { genuineState, devicePermissionState, error, resetGenuineCheckState } = useGenuineCheck({
+  //   getGenuineCheckFromDeviceId: getGenuineCheckFromDeviceIdCommand,
+  //   isHookEnabled: true,
+  //   deviceId,
+  // });
+
+  // console.log(
+  //   `🏴‍☠️🧙‍♂️: genuineState = ${genuineState}, devicePermissionState = ${devicePermissionState}, error = ${error}`,
+  // );
+
+  const { latestFirmware, error, status } = useGetLatestAvailableFirmware({
+    getLatestAvailableFirmwareFromDeviceId: getLatestAvailableFirmwareFromDeviceIdCommand,
+    isHookEnabled: true,
+    deviceId,
   });
-  console.log(`🦄 Manual onboarding polling = ${JSON.stringify(deviceOnboardingState)}`);
+
+  console.log(`🏝: latestFirmware = ${latestFirmware}, status = ${status}, error = ${error}`);
 
   const [isHelpDrawerOpen, setHelpDrawerOpen] = useState<boolean>(false);
   const [isTroubleshootingDrawerOpen, setTroubleshootingDrawerOpen] = useState<boolean>(false);
