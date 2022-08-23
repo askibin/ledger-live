@@ -33,6 +33,12 @@ export function usePostOnboardingHubState(): PostOnboardingHubState {
   const { getPostOnboardingAction } = usePostOnboardingContext();
   const { getFeature } = useFeatureFlags();
   return useMemo(() => {
+    if (!getPostOnboardingAction)
+      return {
+        deviceModelId: hubState.deviceModelId,
+        lastActionCompleted: null,
+        actionsState: [],
+      };
     const actionsState = hubState.actionsToComplete
       .map((actionId) => ({
         ...getPostOnboardingAction(actionId),

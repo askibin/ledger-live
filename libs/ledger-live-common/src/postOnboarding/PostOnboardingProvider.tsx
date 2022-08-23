@@ -7,25 +7,18 @@ import {
 
 type PostOnboardingDependencies = {
   navigateToPostOnboardingHub: () => void;
-  getPostOnboardingAction: (id: PostOnboardingActionId) => PostOnboardingAction;
+  getPostOnboardingAction?: (
+    id: PostOnboardingActionId
+  ) => PostOnboardingAction;
   getPostOnboardingActionsForDevice: (
     id: DeviceModelId,
     mock?: boolean
   ) => PostOnboardingAction[];
 };
 
-const mockPostOnboardingAction: PostOnboardingAction = {
-  id: PostOnboardingActionId.emptyAction,
-  Icon: () => null,
-  title: "",
-  description: "",
-  actionCompletedPopupLabel: "",
-  actionCompletedHubTitle: "",
-};
-
 const defaultValue: PostOnboardingDependencies = {
   navigateToPostOnboardingHub: () => {},
-  getPostOnboardingAction: () => mockPostOnboardingAction,
+  getPostOnboardingAction: undefined,
   getPostOnboardingActionsForDevice: () => [],
 };
 

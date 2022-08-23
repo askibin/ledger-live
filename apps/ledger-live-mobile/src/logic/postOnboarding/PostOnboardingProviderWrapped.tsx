@@ -1,11 +1,13 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { PostOnboardingProvider } from "@ledgerhq/live-common/postOnboarding/PostOnboardingProvider";
 import { getPostOnboardingAction, getPostOnboardingActionsForDevice } from ".";
 import { useNavigateToPostOnboardingHubCallback } from "./hooks";
 
-const PostOnboardingProviderWrapped: React.FC<PropsWithChildren<{}>> = ({
-  children,
-}) => {
+type Props = {
+  children?: React.ReactNode | undefined;
+};
+
+const PostOnboardingProviderWrapped: React.FC<Props> = ({ children }) => {
   const navigateToPostOnboardingHub = useNavigateToPostOnboardingHubCallback();
   return (
     <PostOnboardingProvider
