@@ -4,7 +4,7 @@ import React from "react";
 import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/postOnboarding/hooks/index";
 import PostOnboardingEntryPointCard from "../../components/PostOnboarding/PostOnboardingEntryPointCard";
 import SettingsRow from "../../components/SettingsRow";
-import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
+import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/useNavigateToPostOnboardingHubCallback";
 
 export default () => {
   const handleInitFTS = useStartPostOnboardingCallback(

@@ -8,7 +8,7 @@ import {
   usePostOnboardingDeviceModelId,
   usePostOnboardingEntryPointVisibleOnWallet,
 } from "@ledgerhq/live-common/postOnboarding/hooks/index";
-import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
+import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/useNavigateToPostOnboardingHubCallback";
 import Touchable from "../Touchable";
 import darkPlaceholderImage from "../../images/illustration/Dark/_000_PLACEHOLDER.png";
 import lightPlaceholderImage from "../../images/illustration/Light/_000_PLACEHOLDER.png";

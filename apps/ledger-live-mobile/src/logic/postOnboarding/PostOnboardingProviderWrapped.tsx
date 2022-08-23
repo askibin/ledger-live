@@ -1,7 +1,7 @@
 import React from "react";
 import { PostOnboardingProvider } from "@ledgerhq/live-common/postOnboarding/PostOnboardingProvider";
 import { getPostOnboardingAction, getPostOnboardingActionsForDevice } from ".";
-import { useNavigateToPostOnboardingHubCallback } from "./hooks";
+import { useNavigateToPostOnboardingHubCallback } from "./useNavigateToPostOnboardingHubCallback";
 
 type Props = {
   children?: React.ReactNode | undefined;

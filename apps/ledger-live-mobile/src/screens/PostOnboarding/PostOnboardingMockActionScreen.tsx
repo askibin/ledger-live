@@ -6,7 +6,7 @@ import { useSetActionCompletedCallback } from "@ledgerhq/live-common/postOnboard
 import { getPostOnboardingAction } from "../../logic/postOnboarding";
 import { NavigatorName, ScreenName } from "../../const";
 import { ParamList } from "./types";
-import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
+import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/useNavigateToPostOnboardingHubCallback";
 
 const PostOnboardingMockActionScreen: React.FC<
   StackScreenProps<ParamList, "PostOnboardingMockActionScreen">
